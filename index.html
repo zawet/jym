@@ -12,9 +12,10 @@
     <link href="css/jym.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body class="jymbody">
+<body class="jymbody trn">
+        <a name="f0"></a>
     <div class="jym-top">
-            <a name="f0"></a>
+            
         <div class="jym-1200 clear">
             <div class="fl">
                 <span>
@@ -51,7 +52,7 @@
                     <a class="jym-nav-m-s fz_16"><i class="zicon mr5">&#xe611;</i>全部商品分类</a>
                     <div class="jym-nav-mbox">
                         <div class="jym-nav-m-z ">
-                            <a class="clear"><span class="fl"><i class="zicon mr5">&#xe7a3;</i>名片</span><i class="zicon fr ">&#xe60c;</i></a>
+                            <a class="clear trn"><span class="fl"><i class="zicon mr5">&#xe7a3;</i>名片</span><i class="zicon fr ">&#xe60c;</i></a>
                             <div class="jym-nav-m-zbox">
                                     <div class="jym-nav-m-zli clear">
                                         <label>经典名片:</label>
@@ -80,7 +81,7 @@
                                 </div>
                         </div>
                         
-                        <div class="jym-nav-m-z clear"><a class="clear"><span class="fl">
+                        <div class="jym-nav-m-z clear"><a class="clear trn"><span class="fl">
                                 <i class="zicon mr5">&#xe617;</i>宣传 </span>
                             <i class="zicon fr ">&#xe60c;</i></a>
                             
@@ -115,7 +116,7 @@
                                                             </div>
                                 </div>
                         </div>
-                        <div class="jym-nav-m-z clear"><a class="clear"><span class="fl">
+                        <div class="jym-nav-m-z clear"><a class="clear trn"><span class="fl">
                                 <i class="zicon mr5">&#xe62c;</i>喷绘</span>
                             <i class="zicon fr ">&#xe60c;</i></a>
                             
@@ -146,7 +147,7 @@
                                                         </div>
                                 </div>
                         </div>
-                        <div class="jym-nav-m-z clear"><a class="clear"><span class="fl">
+                        <div class="jym-nav-m-z clear"><a class="clear trn"><span class="fl">
                                 <i class="zicon mr5">&#xe63c;</i>包装</span>
                             <i class="zicon fr ">&#xe60c;</i></a>
                             
@@ -177,7 +178,7 @@
                                                         </div>
                                 </div>
                         </div>
-                        <div class="jym-nav-m-z clear"><a class="clear"><span class="fl">
+                        <div class="jym-nav-m-z clear"><a class="clear trn"><span class="fl">
                                 <i class="zicon mr5">&#xe66b;</i>创意设计</span>
                             <i class="zicon fr ">&#xe60c;</i></a>
                             
@@ -633,18 +634,18 @@
   </div>
 
   <div class="jym-foot">
-        京公网安备 88888888888888号     |     京ICP证888888号      |     互联网药品信息服务资格证编号(京)-经营性-8888-8888    |      新出发京零 字第大888888号<br/>
-        互联网出版许可证编号新出网证(京)字8888号     |     出版物经营许可证      |      网络文化经营许可证京网文[2014]8888-888号      |     违法和不良信息举报电话：888888888<br/>
-                                Copyright © 2004 - 2017  baijia.com 版权所有     |     消费者维权热线：8888888888经营证照
+        <div>京公网安备 88888888888888号     |     京ICP证888888号      |     互联网药品信息服务资格证编号(京)-经营性-8888-8888    |      新出发京零 字第大888888号</div>
+         <div>互联网出版许可证编号新出网证(京)字8888号     |     出版物经营许可证      |      网络文化经营许可证京网文[2014]8888-888号      |     违法和不良信息举报电话：888888888</div>
+         <div>Copyright © 2004 - 2017  baijia.com 版权所有     |     消费者维权热线：8888888888经营证照</div>    
   </div>
 
   <div class="jym-leftnav">
-      <a href="#f1">名片</a>
-      <a href="#f2">宣传</a>
-      <a href="#f3">喷绘</a>
-      <a href="#f4">包装</a>
-      <a href="#f5" style="line-height:20px; padding-top: 5px;" >创意<br/>设计</a>
-      <a href="#f0"><i class="zicon fz_20">&#xe68e;</i></a>
+      <a >名片</a>
+      <a>宣传</a>
+      <a>喷绘</a>
+      <a >包装</a>
+      <a style="line-height:20px; padding-top: 5px;" >创意<br/>设计</a>
+      <a class="top"><i class="zicon fz_20">&#xe68e;</i></a>
   </div>
 
 
@@ -652,7 +653,7 @@
     <script src="js/sea.js"></script>
     <script src="js/seaconfig2.0.js"></script>
     <script>
-        seajs.use(["jq", "run", "sw"], function (j, r, sw) {
+        seajs.use(["jq", "sw"], function (j,  sw) {
             var inbox = new Swiper(".inbox", {
                 //initialSlide :1,
                 //pagination : '.swiper-pagination',
@@ -660,6 +661,14 @@
                 autoplay: 3000,
 
             });
+            $('html,body').animate({scrollTop: '0px'}, 10);
+            $(".jym-leftnav a").click(function(){
+                var st=0;
+                if($(this).hasClass("top")) st=0;
+                else  st=$(".jym-f").eq($(this).index()).offset().top;
+                //console.log(st);
+                $('html,body').animate({scrollTop: st+'px'}, 800);
+            })
         });
     </script>
 </body>
